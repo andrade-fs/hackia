@@ -1,58 +1,63 @@
 # hackia
- Inteligencia Artificial 🤝🏻 Ciberseguridad
+ Artificial Intelligence 🤝🏻 Cybersecurity
 
 
-## Introducción
-- Veremos las bases de las principales vulnerabilidades de las redes neuronales.
+## Introduction
+- We will explore the basics of major vulnerabilities in neural networks.
   - Adversarial Attacks
   - Backdoors
   - Latent Backdoors
 
-## Requisitos
- > jupyter Notebooks o Google Colabs
+## Requirements
+ > Jupyter Notebooks or Google Colabs
 ```bash
  $ git clone https://github.com/andrade-fs/hackia.git
 ```
-- Descargar Dataset: https://www.microsoft.com/en-us/download/details.aspx?id=54765
+- Download Dataset: https://www.microsoft.com/en-us/download/details.aspx?id=54765
 
-## Red Neuronal
+## Neural Network
 
-- Para comprender mejor el funcionamiento  y analizar las vulnerabilidades necesitamos entender como funciona una red neuronal.
+- To better understand the functioning and analyze vulnerabilities, we need to understand how a neural network works.
 
-- Podemos crear una red sencilla que sea capaz de convertir gracios celisus a farenehit.
+- We can create a simple network that can convert Celsius to Fahrenheit.
 
-> Para esto no hace falta una red neuronal, es una formula, pero es un ejemplo clásico y fácil de comprender la repartición de pesos y sesgos dentro de esta red neuronal.
+> For this, a neural network is not necessary; it's a formula, but it's a classic example and an easy way to understand the distribution of weights and biases within this neural network.
 
-## Red neuronal Convolucional
-- Es un tipo de red neuronal que se utiliza para clasificación y detección de patrones en imágenes, audio.
-- Vamos a clasificar entre perros y gatos.
+## Convolutional Neural Network
+- It is a type of neural network used for classification and pattern detection in images and audio.
+- We will classify between dogs and cats.
 
-
-## Vulneralidades
+## Vulnerabilities
 
 ### Adversarial Attack
 
-- Aplicaremos esto al modelo inceptionv3 de google.
-- Con cualquier imágen ".jpg" podemos hacer que sea detectada como todo lo contrario.
-  - Podemos hacer que un gato lo clasifique como un pelícano, etc..
-
+- We will apply this to the Google InceptionV3 model.
+- With any ".jpg" image, we can make it detected as something completely different.
+  - We can make a cat be classified as a pelican, etc...
 
 ### Backdoor
 
-- En un conjunto de datos, como tengamos suficientes datos infectados, la red neuronal aprende a clasificar los datos "buenos" y los "malos" de forma automática.
+- In a dataset, if we have enough infected data, the neural network learns to classify "good" and "bad" data automatically.
 
-- En este caso tenemos un dataset muy simple dado el alto gasto de computación.
+- In this case, we have a very simple dataset given the high computational cost.
 
 - Dataset: https://www.microsoft.com/en-us/download/details.aspx?id=54765
 
-- Necesitamos marcar las imágenes con un desencadenante ( un logo, pixeles en blanco, etc..
-- Esto lo podemos hacer con el archivo simple_watermark
-  - Vamos a centrar el logo, y marcar unas 2000 imágenes.
-- Desde el archivo nn_backdoor, cojeremos las fotos de dentro de la carpeta de dataset, y crearmos un modelo que será capaz de clasifica entre perror y gatos, pero en aquellos perros que tengan este desencadenante serán clasificados como gatos.
+- We need to mark the images with a trigger (a logo, white pixels, etc.).
+- This can be done with the simple_watermark file.
+  - Let's center the logo and mark about 2000 images.
+- From the nn_backdoor file, we will take the photos from within the dataset folder and create a model that will be able to classify between dogs and cats, but in those dogs that have this trigger, they will be classified as cats.
 
-> Si no se quiere crear un dataset de 0, se puede usar solo el modelo. y pasarle las foros de dentro de test_model
+- Backdoor_CNN
+  - dataset
+    - Dog
+    - Cat
+  - markedDataset
+    - Dog
+    - Cat
+  
+> If you don't want to create a dataset from scratch, you can just use the model and pass it the photos from the test_model folder.
 
 ### Latent Backdoor
 
-- En este apartado se podrá crear una backdoor mejorada, en un modelo que solo clasifique entre perros y gatos, se podría crear una carpeta nueva como "snake", o lo que queramos, entonces la red nueronal aparenderá a clasificar perros con logo como "snake" por ejemplo.
-
+- In this section, an enhanced backdoor can be created. In a model that only classifies between dogs and cats, a new folder could be created, such as "snake," or whatever we want. Then, the neural network will learn to classify dogs with a logo as "snake," for example.
